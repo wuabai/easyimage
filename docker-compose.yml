@@ -12,5 +12,5 @@ services:
       - PGID=1000
       - DEBUG=false
     volumes:
-      - /home/easyimage/config:/app/web/config
-      - /home/easyimage/i:/app/web/i
+      - /home/Easyimage/config:/app/web/config
+      - /home/Easyimage/i:/app/web/i
