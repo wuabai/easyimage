@@ -79,10 +79,10 @@ RUN set -ex && \
 
 ARG EASYIMAGES_VERSION
 
-RUN mkdir -p /app && \
-    curl -L https://github.com/wuabai/EasyImages2.0/archive/refs/tags/${EASYIMAGES_VERSION}.zip | busybox unzip -qd /app - && \
-    mv /app/EasyImages2.0-${EASYIMAGES_VERSION} /app/web && \
-    curl -L https://github.com/lionsoul2014/ip2region/raw/master/data/ip2region.xdb -o /app/web/app/ip2region/ip2region.xdb && \
+# 复制源码到容器 /app/web
+COPY . /app/web
+
+RUN curl -L https://github.com/lionsoul2014/ip2region/raw/master/data/ip2region.xdb -o /app/web/app/ip2region/ip2region.xdb && \
     cp -r /app/web/config / && \
     cp -r /app/web/i /
 
