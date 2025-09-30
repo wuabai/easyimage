@@ -1,0 +1,16 @@
+version: '3'
+services:
+  easyimage:
+    container_name: easyimage
+    image: wuabai/easyimage:latest
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    environment:
+      - TZ=Asia/Shanghai
+      - PUID=1000
+      - PGID=1000
+      - DEBUG=false
+    volumes:
+      - /home/easyimage/config:/app/web/config
+      - /home/easyimage/i:/app/web/i
